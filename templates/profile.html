@@ -1,0 +1,70 @@
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <div class="container-fluid p-3 d-flex flex-md-row flex-column m-auto">
+        <div class="block-statics text-center d-flex flex-column gap-none">
+            <div class="block-user pt-4 pb-4">
+                <img src="/static/images/UserBlock.png" alt="" class="img-fluid icon-user">
+                <h1 class="text-muted">{{ current_user.username }}</h1>
+                <a href="{{ url_for('logout') }}" class="btn btn-primary" style="margin: 10px;">Выйти</a>
+                {% if current_user.role == 1 %}
+                    <a href="/admin" class="btn btn-primary" style="margin: 10px;">Админка</a>
+                {% endif %}
+            </div>
+            <div class="block-posts container">
+                <h1 class="text-muted mt-4">Мои посты</h1>
+                <div class="d-flex flex-row flex-wrap justify-content-between mt-4">
+                    {% for post in posts %}
+                    <div class="post-info d-flex flex-column justify-content-center">
+                        <div class="post-me">
+                            <h4>{{ post.title }}</h4>
+                            <p>{{ post.content | truncate(150) }}</p>
+                        </div>
+                        <p class="name-post text-muted">Дата публикации: {{ post.date_posted.strftime('%d.%m.%Y') }}</p>
+                        <form action="{{ url_for('delete_post', post_id=post.id) }}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="block-screen d-flex flex-column justify-content-between gap-4 mt-4">
+            <div class="block-active w-100 bg-white p-2 mt-0">
+                <h2 class="text-muted text-center">Окно активности</h2>
+                <div class="d-flex flex-column justify-content-start">
+                    <h4 class="text-muted">Лайки: {{ total_likes }}</h4>
+                    <h4 class="text-muted">Комментарии: {{ total_comments }}</h4>
+                </div>
+                <h4 class="text-muted text-center">Посты: {{ posts|length }}</h4>
+            </div>
+
+            <div class="block-delete bg-white w-100 p-3">
+                <h2 class="text-center">Удаленные посты <span class="text-muted">({{ deleted_posts|length }})</span>
+                </h2>
+                <div class="d-flex flex-row gap-2 flex-wrap">
+                    {% if deleted_posts %}
+                    {% for post in deleted_posts %}
+                    <div class="post-delete">
+                        <h4>{{ post.title }}</h4>
+                        <p>{{ post.content | truncate(150) }}</p>
+                        <small>Дата удаления: {{ post.deletion_date.strftime('%d.%m.%Y') }}</small>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="post-delete">Удалённых постов нет.</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+    <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endblock %}

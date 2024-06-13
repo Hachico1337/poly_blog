@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    {% if posts %}
+    <ul>
+        {% for post in posts %}
+        <div>
+            <h4>Название: {{ post.title }}</h4>
+            <p>Контент: {{ post.content }}</p>
+            <form action="{{ url_for('delete_post', post_id=post.id) }}" method="POST">
+                <button type="submit" class="btn btn-primary">Удалить пост</button>
+            </form>
+            <div>
+                {% endfor %}
+                {% else %}
+                <p>Посты отсутствуют.</p>
+                {% endif %}
+            </div>
+            {% endblock %}

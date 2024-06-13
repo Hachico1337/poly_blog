@@ -1,0 +1,24 @@
+    {% extends "base.html" %}
+    
+    {% block content %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <div class="addPost w-100 d-flex flex-column flex-md-row bg-tertiary container-fluid m-auto mt-4 justify-content-around">
+        <form class="addBlock d-flex flex-column" method="post" action="{{ url_for('publish_post') }}">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Заголовок" aria-label="Заголовок" aria-describedby="basic-addon1" name="title">
+                <button class="input-group-text" id="basic-addon1"><img src="../static/images/ol.png" alt="" class="w-75 img-fluid"></button>
+            </div>              
+            <textarea class="contentinp w-100 text-start" rows="10" placeholder="Основная часть" name="content"></textarea>
+            <input type="hidden" name="user_id" value="{{ current_user.id }}">
+            <button class="btn btn-success" type="submit">Опубликовать</button>
+        </form>
+    </div>
+    {% endblock %}

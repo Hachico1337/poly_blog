@@ -1,0 +1,291 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #E3DEDE !important;
+}
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .roboto-regular-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+/* header */
+
+.btn-header {
+    background: none;
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+
+
+.nav-link {
+    font-weight: 800 !important;
+    font-size: large !important;
+    color: 353131 !important;
+}
+
+.logo-img {
+    width: 70%;
+}
+
+/* Регистрация - вход */
+
+.block-sign {
+  border: solid 0.5px #1E1E1E;
+  width: 25%;
+}
+
+.input-sign {
+  border-radius: 10px;
+  box-shadow: none;
+  border: solid 0.5px #857F7F;
+  height: 7vh;
+  background-color: #EEEEEE;
+  padding: 0 20px;
+  outline: none;
+}
+
+
+.btn-form {
+  background-color: #6DB0EF !important;
+  border: none !important;
+  font-size: larger !important;
+}
+
+@media(max-width:768px) {
+  .block-sign {
+    width: 75% !important;
+  }
+
+  .input-sign {
+    height: 5vh;
+  }
+}
+
+/* Контент блок */
+
+.block-content {
+  background-color: #C6C6C6;
+  border-radius: 15px;
+  width: 80%;
+  height: 300px;
+  overflow-y: scroll;
+  transition: height 0.5s ease;
+}
+
+.expanded {
+  height: auto!important; 
+  overflow: visible!important; 
+}
+
+.post-text {
+  width: 100%;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+.button-watch {
+  background: none;
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+
+.button-bot {
+  background: none;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  text-align: center;
+}
+
+.button-container {
+  position: relative; 
+  cursor: pointer; 
+}
+
+#comments-container {
+  display: none; 
+  position: absolute;
+  left: 0; 
+  bottom: 100%;
+  width: 100%; 
+  background-color: white; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+  z-index: 10; 
+  padding: 20px; 
+  border: 1px solid #ccc; 
+  border-radius: 10px; 
+}
+
+.hidden {
+  display: none!important;
+}
+
+#comments-container ul {
+  list-style-type: none;
+  padding: 10px;
+  margin: 10px 0; 
+}
+
+#comments-container input[type="text"] {
+  width: 80%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 16px; 
+}
+
+#comments-container button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px 0; 
+}
+.button-container {
+  width: 15%;
+}
+@media(max-width:768px) {
+  .text-middle {
+    font-size: medium;
+  }
+
+  .button-watch {
+    font-size: small;
+  }
+
+  .button-bot {
+    width: 40%;
+
+  }
+
+  .bot {
+    justify-content: center !important;
+  }
+
+  .block-content {
+    width: 90%;
+  }
+}
+
+/* Profile */
+
+.block-user {
+  background-color: #9E9E9E;
+  border-bottom: black 1px solid;
+}
+
+.block-posts {
+  overflow-y: scroll;
+  height: 50vh;
+}
+
+.block-statics {
+  width: 45%;
+}
+
+.post-me {
+  background-color: #D9D9D9;
+  width: 100%;
+  height: 20vh;
+  border-radius: 10px;
+}
+
+.post-info {
+  width: 40%;
+}
+
+@media(max-width:768px){
+  .block-statics {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+/* Два окна справа */
+
+.block-screen {
+  width: 45%;
+  margin: auto;
+}
+
+.block-delete {
+  overflow-y: scroll;
+  height: 30vh;
+}
+
+.post-delete {
+  background-color: #D9D9D9;
+  width: 30%;
+  height: 20vh;
+  border-radius: 10px;
+  overflow-y: hidden;
+}
+
+@media(max-width:768px) {
+  .block-screen {
+    width: 100%;
+  }
+
+  .post-delete {
+    height: 10vh;
+  }
+}
+
+/* addpost */
+
+.addPost {
+  height: 265px;
+}
+
+.addBlock {
+  height: 100%;
+  width: 50%;
+}
+
+.block-publish {
+  height: max-content;
+  border-radius: 10px;
+  width: 25%;
+}
+
+@media(max-width:768px) {
+  .addBlock {
+    width: 100%;
+    margin-top: 30%;
+  }
+
+  .block-publish {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+.comments-content {
+  height: 200px;
+  overflow-y: scroll;
+}
